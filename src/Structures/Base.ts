@@ -1,4 +1,3 @@
-import Vue from 'vue';
 import {autobind} from '../utils';
 import Request from '../HTTP/Request';
 import Response from '../HTTP/Response';
@@ -56,8 +55,8 @@ abstract class Base {
             writable:     false,
         });
 
-        Vue.set(this, '_listeners', {});  // Event listeners
-        Vue.set(this, '_options',   {});  // Internal option store
+        set(this, '_listeners', {});  // Event listeners
+        set(this, '_options',   {});  // Internal option store
 
         this.setOptions(options);
         this.boot();
@@ -218,7 +217,7 @@ abstract class Base {
      * @param {...Object} options One or more objects of options.
      */
     setOptions(...options: Options[]): void {
-        Vue.set(this, '_options', defaultsDeep(
+        set(this, '_options', defaultsDeep(
             {},
             ...options,                 // Given options
             this.options(),             // Instance defaults
