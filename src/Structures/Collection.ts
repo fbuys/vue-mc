@@ -54,14 +54,14 @@ const LAST_PAGE = 0;
 class Collection extends Base {
     models!: Model[];
 
-    readonly loading!: boolean;
-    readonly saving!: boolean;
-    readonly deleting!: boolean;
-    readonly fatal!: boolean;
+    readonly loading: boolean = false;
+    readonly saving: boolean = false;
+    readonly deleting: boolean = false;
+    readonly fatal: boolean = false;
 
-    private readonly _attributes!: Record<string, any>;
-    private readonly _page!: number | null;
-    private readonly _registry!: Record<string, string>;
+    private readonly _attributes: Record<string, any> = {};
+    private readonly _page: number | null = NO_PAGE;
+    private readonly _registry: Record<string, string> = {};
 
     /**
      * Accessor to support Array.length semantics.

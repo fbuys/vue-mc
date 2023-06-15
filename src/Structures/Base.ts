@@ -40,8 +40,8 @@ abstract class Base {
     static readonly REQUEST_SKIP      = RequestOperation.REQUEST_SKIP;
 
     readonly _uid!: string;
-    private readonly _listeners!: Record<string, Listener[]>;
-    private readonly _options!: Record<string, any>;
+    private readonly _listeners: Record<string, Listener[]> = {};
+    private readonly _options: Record<string, any> = {};
 
     protected constructor(options: Options) {
         autobind(this);

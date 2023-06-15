@@ -95,17 +95,17 @@ const copyFrom = function(source: Record<string, any>, target: Record<string, an
  */
 class Model extends Base {
     [key: string]: any;
-    readonly loading!: boolean;
-    readonly saving!: boolean;
-    readonly deleting!: boolean;
-    readonly fatal!: boolean;
+    readonly loading: boolean = false;
+    readonly saving: boolean = false;
+    readonly deleting: boolean = false;
+    readonly fatal: boolean = false;
 
-    private readonly _attributes!: Record<string, any>;
-    private readonly _collections!: Record<string, Collection>;
+    private readonly _attributes: Record<string, any> = {};
+    private readonly _collections: Record<string, Collection> = {};
 
-    private readonly _reference!: Record<string, any>;
-    private _mutations!: Record<string, Mutation>;
-    private readonly _errors!: Record<string, string[]>;
+    private readonly _reference: Record<string, any> = {};
+    private _mutations: Record<string, Mutation> = {};
+    private readonly _errors: Record<string, string[]> = {};
 
     /**
      * A convenience wrapper around the model's attributes that are saved.
