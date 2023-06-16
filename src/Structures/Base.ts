@@ -44,7 +44,7 @@ abstract class Base {
     private readonly _options: Record<string, any> = {};
 
     protected constructor(options: Options) {
-        autobind(this);
+        // autobind(this);
 
         // Define an automatic unique ID. This is primarily to distinguish
         // between multiple instances of the same name and data.
@@ -577,9 +577,9 @@ abstract class Base {
 
         return this.request(
             config,
-            this.onFetch,
-            this.onFetchSuccess,
-            this.onFetchFailure
+            this.onFetch.bind(this),
+            this.onFetchSuccess.bind(this),
+            this.onFetchFailure.bind(this)
         );
     }
 
@@ -613,9 +613,9 @@ abstract class Base {
 
         return this.request(
             config,
-            this.onSave,
-            this.onSaveSuccess,
-            this.onSaveFailure
+            this.onSave.bind(this),
+            this.onSaveSuccess.bind(this),
+            this.onSaveFailure.bind(this),
         );
     }
 
@@ -684,9 +684,9 @@ abstract class Base {
 
         return this.request(
             config,
-            this.onDelete,
-            this.onDeleteSuccess,
-            this.onDeleteFailure
+            this.onDelete.bind(this),
+            this.onDeleteSuccess.bind(this),
+            this.onDeleteFailure.bind(this)
         );
     }
 }

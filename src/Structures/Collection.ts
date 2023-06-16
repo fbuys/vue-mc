@@ -346,7 +346,7 @@ class Collection extends Base {
 
         // If given an array, assume an array of models and add them all.
         if (isArray(model)) {
-            return filter(map(model as Model[], this.add));
+            return filter(map(model as Model[], this.add.bind(this)));
         }
 
         // Objects should be converted to model instances first, then added.
